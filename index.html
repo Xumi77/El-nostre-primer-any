@@ -2,7 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Netflix Pareja - Cristian & Fernanda</title>
+  <title>Netflix Pareja - Elsa & Guifré</title>
+  
+  <!-- IMPORTACIÓN DE FUENTES (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&display=swap" 
+    rel="stylesheet"
+  >
+
   <style>
     /* Reseteo básico */
     * {
@@ -11,13 +20,14 @@
       box-sizing: border-box;
     }
 
+    /* FUENTE GENERAL */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #141414;
       color: #fff;
     }
 
-    /* Encabezado - Barra superior */
+    /* ENCABEZADO / NAV SUPERIOR */
     header {
       display: flex;
       align-items: center;
@@ -25,9 +35,11 @@
       padding: 0 2rem;
       height: 60px;
       background-color: rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 10; /* Para que quede por encima del banner */
     }
 
-    /* Logo Netflix */
+    /* LOGO NETFLIX */
     .logo {
       font-size: 1.6rem;
       font-weight: bold;
@@ -37,7 +49,7 @@
       cursor: pointer;
     }
 
-    /* Navegación principal */
+    /* MENÚ PRINCIPAL */
     nav ul {
       list-style: none;
       display: flex;
@@ -53,7 +65,7 @@
       color: #bbb;
     }
 
-    /* Iconos de la derecha (búsqueda, perfil) */
+    /* ICONOS DERECHA (BÚSQUEDA, CAMPANA, PERFIL) */
     .right-icons {
       display: flex;
       align-items: center;
@@ -63,18 +75,30 @@
       color: #fff;
       text-decoration: none;
       font-size: 1.2rem;
+      transition: color 0.2s ease-in;
+    }
+    .right-icons a:hover {
+      color: #bbb;
+    }
+    .profile-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
-    /* Banner principal */
+    /* BANNER PRINCIPAL */
     .banner {
       position: relative;
       width: 100%;
       height: 60vh;
-      /* Sustituye 'banner.jpg' por tu imagen principal */
+      /* SUSTITUIR 'banner.jpg' POR TU IMAGEN */
       background: url("banner.jpg") center center / cover no-repeat;
       display: flex;
       align-items: flex-end;
       padding: 2rem;
+      /* ESPACIO EXTRA PARA QUE NO SE TAPE CON EL HEADER */
+      margin-top: 80px; 
     }
 
     .banner-content {
@@ -84,34 +108,56 @@
       border-radius: 5px;
     }
 
+    /* NOMBRE PRINCIPAL - ESTILO CURSIVO */
     .banner-content h1 {
-      font-size: 2rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
-    /* Info superior (ej. “Casais”, “1º Grande Amor”, etc.) */
+    /* LÍNEA DE INFO (Casais, Juntos..., etc.) */
     .info-line {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.8rem;
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
+      gap: 0.6rem;
+      font-size: 0.95rem;
       color: #ccc;
+      margin: 0.8rem 0;
     }
-    .info-line span {
+    /* Etiquetas de clasificación, rating, etc. */
+    .info-line .rating {
+      background-color: #21d07a; /* Verde Netflix para "L" */
+      color: #000;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .info-line .badge {
       background-color: #333;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-weight: normal;
     }
 
+    /* Para destacar un “TOP 10” si quisieras */
+    .top10 {
+      display: inline-block;
+      background-color: #e50914;
+      padding: 0.2rem 0.4rem;
+      margin-top: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 3px;
+    }
+
+    /* DESCRIPCIÓN / SINOPSIS */
     .banner-content p {
       line-height: 1.4;
       margin-bottom: 1.2rem;
     }
 
-    /* Botones banner (Ver y Favorito) */
+    /* BOTONES (VER, FAVORITO) */
     .banner-buttons {
       display: flex;
       gap: 1rem;
@@ -123,7 +169,6 @@
       align-items: center;
       justify-content: center;
       padding: 0.6rem 1.2rem;
-      background-color: #e50914;
       border: none;
       border-radius: 4px;
       font-size: 0.95rem;
@@ -131,12 +176,12 @@
       color: #fff;
       text-decoration: none;
       transition: background-color 0.2s;
+      background-color: #e50914; /* Rojo Netflix */
     }
     .banner-buttons a:hover,
     .banner-buttons button:hover {
       background-color: #f40612;
     }
-    /* Botón alternativo (Favorito) con estilo diferente */
     .banner-buttons .favorite-btn {
       background-color: #333;
     }
@@ -144,13 +189,13 @@
       background-color: #444;
     }
 
-    /* Créditos / Etiquetas bajo los botones (género, etc.) */
+    /* ETIQUETAS O CRÉDITOS (género, protagonistas, etc.) */
     .tags {
       font-size: 0.85rem;
       color: #bbb;
     }
 
-    /* Tabs (Historia, Momentos, etc.) */
+    /* TABS (Historia, Momentos, etc.) */
     .tabs {
       display: flex;
       gap: 1.5rem;
@@ -175,7 +220,7 @@
       background-color: red;
     }
 
-    /* Sección de fotos / secciones inferiores */
+    /* SECCIONES DE FOTOS / MINIATURAS */
     .section-container {
       padding: 1.5rem 2rem;
     }
@@ -203,7 +248,7 @@
       transform: scale(1.05);
     }
 
-    /* Pie de página */
+    /* PIE DE PÁGINA */
     footer {
       text-align: center;
       padding: 2rem;
@@ -224,7 +269,7 @@
       color: #aaa;
     }
 
-    /* Modal (si quieres mostrar un video al dar clic en "Ver") */
+    /* MODAL (para reproducir un video si quieres) */
     .modal-overlay {
       position: fixed;
       top: 0; 
@@ -237,7 +282,6 @@
       justify-content: center;
       z-index: 999;
     }
-
     .modal-content {
       position: relative;
       width: 80%;
@@ -246,7 +290,6 @@
       border-radius: 5px;
       padding: 20px;
     }
-
     .close-btn {
       position: absolute;
       top: 10px;
@@ -257,7 +300,6 @@
       color: #fff;
       cursor: pointer;
     }
-
     video {
       width: 100%;
       height: auto;
@@ -268,72 +310,84 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ENCABEZADO -->
   <header>
+    <!-- LOGO NETFLIX -->
     <div class="logo">Netflix</div>
+    
+    <!-- MENÚ -->
     <nav>
       <ul>
         <li><a href="#">Início</a></li>
         <li><a href="#">Séries</a></li>
+        <li><a href="#">Filmes</a></li>
         <li><a href="#">Bombando</a></li>
         <li><a href="#">Minha Lista</a></li>
       </ul>
     </nav>
+
+    <!-- ICONOS DERECHA -->
     <div class="right-icons">
       <a href="#" title="Buscar">🔍</a>
-      <a href="#" title="Perfil">👤</a>
+      <a href="#" title="Notificações">🔔</a>
+      <!-- Imagen de perfil (puedes cambiar por tu foto) -->
+      <img src="profile.jpg" alt="Profile" class="profile-img">
     </div>
   </header>
 
-  <!-- Banner Principal -->
+  <!-- BANNER PRINCIPAL -->
   <div class="banner">
     <div class="banner-content">
-      <h1>Cristian &amp; Fernanda</h1>
-      <!-- Info superior -->
+      <!-- NOMBRE CURSIVO -->
+      <h1>Elsa &amp; Guifré</h1>
+      
+      <!-- ZONA TIPO “Casais | Juntos desde 2017 | 1º Grande Amor | L | HDR” -->
       <div class="info-line">
-        <span>Casais</span>
+        <span class="genre">Casais</span>
         <span>Juntos desde 2017</span>
         <span>1º Grande Amor</span>
-        <span>16</span>
-        <span>HDR</span>
-        <span>Melhores Casais do Mundo</span>
+        <span class="rating">L</span>  <!-- Etiqueta de clasificación -->
+        <span class="badge">HDR</span> <!-- Etiqueta gris -->
       </div>
+      <!-- O si quieres un “TOP 10” en rojo, podrías poner:
+      <div class="top10">Melhores Casais do Mundo</div>
+      -->
 
-      <!-- Descripción / Sinopsis -->
+      <!-- DESCRIPCIÓN -->
       <p>
-        O dia em que meu mundo parou, foi estranho como tudo começou.
-        Quis passar despercebido, e naquela instante percebi...
-        Agora a realidade é outra: você é minha pessoa favorita.
+        Un amor tan grande que iluminó cada día desde que se conocieron.
+        Sus risas, aventuras y momentos inolvidables los convirtieron 
+        en la pareja más admirada por todos los que los rodean.
       </p>
 
-      <!-- Botones -->
+      <!-- BOTONES -->
       <div class="banner-buttons">
         <a href="#" id="verBtn">▶ Ver</a>
         <button class="favorite-btn">♡ Favorito</button>
       </div>
 
-      <!-- Tags / Créditos -->
+      <!-- ETIQUETAS / CRÉDITOS -->
       <div class="tags">
-        <strong>Protagonistas:</strong> Cristian Miller e Fernanda Alves<br>
-        <strong>Gênero:</strong> Romance, Amoroso, Brincadeira<br>
-        <strong>Años:</strong> 2017 - Presente
+        <strong>Protagonistas:</strong> Elsa, Guifré<br>
+        <strong>Género:</strong> Romance, Comedia<br>
+        <strong>Duración:</strong> 2017 - Presente
       </div>
 
-      <!-- Tabs (Historia, Momentos, etc.) -->
+      <!-- TABS (opcional) -->
       <div class="tabs">
-        <a href="#">História</a>
+        <a href="#">Historia</a>
         <a href="#">Momentos</a>
-        <a href="#">Absences</a>
+        <a href="#">Fotos</a>
         <a href="#">Curiosidades</a>
       </div>
     </div>
   </div>
 
-  <!-- Sección de fotos / “Nossas melhores fotos” -->
+  <!-- SECCIÓN DE FOTOS / MOMENTOS -->
   <div class="section-container">
     <div class="section-title">Nossas Melhores Fotos</div>
     <div class="thumbnails">
-      <!-- Reemplaza foto1.jpg, foto2.jpg, etc. con tus imágenes -->
+      <!-- SUSTITUIR 'fotoX.jpg' POR TUS IMÁGENES -->
       <img src="foto1.jpg" alt="Foto 1">
       <img src="foto2.jpg" alt="Foto 2">
       <img src="foto3.jpg" alt="Foto 3">
@@ -342,7 +396,7 @@
     </div>
   </div>
 
-  <!-- Otra sección (opcional) -->
+  <!-- OTRA SECCIÓN (opcional) -->
   <div class="section-container">
     <div class="section-title">Mais Populares</div>
     <div class="thumbnails">
@@ -352,7 +406,7 @@
     </div>
   </div>
 
-  <!-- Modal para reproducir un video (opcional) -->
+  <!-- MODAL (si quieres reproducir un video) -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-content">
       <button class="close-btn" id="closeBtn">X</button>
@@ -364,16 +418,16 @@
     </div>
   </div>
 
-  <!-- Pie de página -->
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p>N Original <strong>Netflix</strong> | Desde 2012</p>
     <p>
-      Projeto criado por <a href="#">Tu Nombre</a>.  
+      Proyecto creado por <a href="#">Tu Nombre</a>.  
       Esta página es solo un ejemplo de estilo “Netflix” personalizado.
     </p>
   </footer>
 
-  <!-- JavaScript para el modal de video (descomenta si vas a usarlo) -->
+  <!-- JAVASCRIPT PARA EL MODAL DE VIDEO (descomenta si lo necesitas) -->
   <script>
     const verBtn = document.getElementById('verBtn');
     const modalOverlay = document.getElementById('modalOverlay');
@@ -395,7 +449,6 @@
       e.preventDefault();
       openModal();
     });
-
     closeBtn.addEventListener('click', closeModal);
 
     // Cerrar modal al hacer clic fuera del contenido
