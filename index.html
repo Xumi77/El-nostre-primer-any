@@ -36,7 +36,7 @@
       height: 60px;
       background-color: rgba(0,0,0,0.8);
       position: relative;
-      z-index: 10; /* Para que quede por encima del banner */
+      z-index: 10;
     }
 
     /* LOGO NETFLIX */
@@ -65,7 +65,7 @@
       color: #bbb;
     }
 
-    /* ICONOS DERECHA (BÚSQUEDA, CAMPANA, PERFIL) */
+    /* ICONOS DERECHA */
     .right-icons {
       display: flex;
       align-items: center;
@@ -92,13 +92,11 @@
       position: relative;
       width: 100%;
       height: 60vh;
-      /* SUSTITUIR 'banner.jpg' POR TU IMAGEN */
       background: url("banner.jpg") center center / cover no-repeat;
       display: flex;
       align-items: flex-end;
       padding: 2rem;
-      /* ESPACIO EXTRA PARA QUE NO SE TAPE CON EL HEADER */
-      margin-top: 80px; 
+      margin-top: 120px; 
     }
 
     .banner-content {
@@ -115,7 +113,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* LÍNEA DE INFO (Casais, Juntos..., etc.) */
+    /* LÍNEA DE INFO */
     .info-line {
       display: flex;
       flex-wrap: wrap;
@@ -125,45 +123,39 @@
       color: #ccc;
       margin: 0.8rem 0;
     }
-    /* Etiquetas de clasificación, rating, etc. */
-    .info-line .rating {
-      background-color: #21d07a; /* Verde Netflix para "L" */
-      color: #000;
+    .info-line span {
       padding: 0.1rem 0.4rem;
       border-radius: 3px;
+    }
+    .info-line .genre {
+      background-color: transparent;
+    }
+    .info-line .rating {
+      background-color: #21d07a;
+      color: #000;
       font-weight: bold;
     }
     .info-line .badge {
       background-color: #333;
-      padding: 0.1rem 0.4rem;
-      border-radius: 3px;
-      font-weight: normal;
     }
-
-    /* Para destacar un “TOP 10” si quisieras */
-    .top10 {
-      display: inline-block;
+    .info-line .top10 {
       background-color: #e50914;
-      padding: 0.2rem 0.4rem;
-      margin-top: 0.3rem;
-      font-size: 0.8rem;
       font-weight: bold;
-      border-radius: 3px;
+      font-size: 0.8rem;
     }
 
-    /* DESCRIPCIÓN / SINOPSIS */
+    /* DESCRIPCIÓN */
     .banner-content p {
       line-height: 1.4;
       margin-bottom: 1.2rem;
     }
 
-    /* BOTONES (VER, FAVORITO) */
+    /* BOTONES */
     .banner-buttons {
       display: flex;
       gap: 1rem;
       margin-bottom: 1rem;
     }
-    .banner-buttons a,
     .banner-buttons button {
       display: inline-flex;
       align-items: center;
@@ -174,11 +166,9 @@
       font-size: 0.95rem;
       cursor: pointer;
       color: #fff;
-      text-decoration: none;
+      background-color: #e50914;
       transition: background-color 0.2s;
-      background-color: #e50914; /* Rojo Netflix */
     }
-    .banner-buttons a:hover,
     .banner-buttons button:hover {
       background-color: #f40612;
     }
@@ -189,13 +179,13 @@
       background-color: #444;
     }
 
-    /* ETIQUETAS O CRÉDITOS (género, protagonistas, etc.) */
+    /* ETIQUETAS / CRÉDITOS */
     .tags {
       font-size: 0.85rem;
       color: #bbb;
     }
 
-    /* TABS (Historia, Momentos, etc.) */
+    /* TABS */
     .tabs {
       display: flex;
       gap: 1.5rem;
@@ -220,7 +210,7 @@
       background-color: red;
     }
 
-    /* SECCIONES DE FOTOS / MINIATURAS */
+    /* SECCIÓN DE FOTOS */
     .section-container {
       padding: 1.5rem 2rem;
     }
@@ -229,13 +219,11 @@
       margin-bottom: 1rem;
       font-weight: bold;
     }
-
     .thumbnails {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .thumbnails img {
       width: 220px;
       height: 120px;
@@ -269,7 +257,7 @@
       color: #aaa;
     }
 
-    /* MODAL (para reproducir un video si quieres) */
+    /* MODAL */
     .modal-overlay {
       position: fixed;
       top: 0; 
@@ -277,7 +265,7 @@
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.8);
-      display: none; /* Oculto por defecto */
+      display: none;
       align-items: center;
       justify-content: center;
       z-index: 999;
@@ -312,10 +300,7 @@
 
   <!-- ENCABEZADO -->
   <header>
-    <!-- LOGO NETFLIX -->
     <div class="logo">Netflix</div>
-    
-    <!-- MENÚ -->
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
@@ -325,12 +310,9 @@
         <li><a href="#">Mi Lista</a></li>
       </ul>
     </nav>
-
-    <!-- ICONOS DERECHA -->
     <div class="right-icons">
       <a href="#" title="Buscar">🔍</a>
       <a href="#" title="Notificaciones">🔔</a>
-      <!-- Imagen de perfil (puedes cambiar por tu foto) -->
       <img src="profile.jpg" alt="Profile" class="profile-img">
     </div>
   </header>
@@ -338,42 +320,30 @@
   <!-- BANNER PRINCIPAL -->
   <div class="banner">
     <div class="banner-content">
-      <!-- NOMBRE CURSIVO -->
       <h1>Elsa &amp; Guifré</h1>
-      
-      <!-- ZONA TIPO “Futuro matrimonio | Juntos desde 6 Abril 2024 | 1º Gran Amor | L | HDR” -->
       <div class="info-line">
-        <span class="genre">Futoro matrimonio</span>
-        <span>Juntos desde 6 Abril 2024</span>
-        <span>1º Gran Amor</span>
-        <span class="rating">L</span>  <!-- Etiqueta de clasificación -->
-        <span class="badge">HDR</span> <!-- Etiqueta gris -->
+        <span class="genre">Casais</span>
+        <span>Juntos desde 2017</span>
+        <span>1º Grande Amor</span>
+        <span class="rating">16</span>
+        <span class="badge">HDR</span>
+        <span class="top10">Melhores Casais do Mundo</span>
       </div>
-      <!-- O si quieres un “TOP 10” en rojo, podrías poner:
-      <div class="top10">Melhores Casais do Mundo</div>
-      -->
-
-      <!-- DESCRIPCIÓN -->
       <p>
         Una joven pareja se ve envuelta en una increíble romédia comántica
         en la que se verán abrumados por mil aventuras, algunas saldrán bien,
         otras mal, reirán y llorarán, pero lo más importante: Siempre permanecerán juntos.
       </p>
-
-      <!-- BOTONES -->
+      <!-- He cambiado el enlace por un botón para evitar conflictos con el comportamiento del enlace -->
       <div class="banner-buttons">
-        <a href="#" id="verBtn">▶ Ver</a>
+        <button id="verBtn">▶ Ver</button>
         <button class="favorite-btn">♡ Favorito</button>
       </div>
-
-      <!-- ETIQUETAS / CRÉDITOS -->
       <div class="tags">
         <strong>Los enamorados:</strong> Elsa i Guifré<br>
         <strong>Género:</strong> Romédia comántica<br>
         <strong>El primer año:</strong> 2024 - 2025
       </div>
-
-      <!-- TABS (opcional) -->
       <div class="tabs">
         <a href="#">Aventura</a>
         <a href="#">Carcajadas</a>
@@ -383,11 +353,10 @@
     </div>
   </div>
 
-  <!-- SECCIÓN DE FOTOS / MOMENTOS -->
+  <!-- SECCIÓN DE FOTOS -->
   <div class="section-container">
     <div class="section-title">Nuestros momentos</div>
     <div class="thumbnails">
-      <!-- SUSTITUIR 'fotoX.jpg' POR TUS IMÁGENES -->
       <img src="foto1.jpg" alt="Foto 1">
       <img src="foto2.jpg" alt="Foto 2">
       <img src="foto3.jpg" alt="Foto 3">
@@ -399,7 +368,7 @@
     </div>
   </div>
 
-  <!-- OTRA SECCIÓN (opcional) -->
+  <!-- OTRA SECCIÓN -->
   <div class="section-container">
     <div class="section-title">La más perfecta</div>
     <div class="thumbnails">
@@ -410,11 +379,10 @@
     </div>
   </div>
 
-  <!-- MODAL (si quieres reproducir un video) -->
+  <!-- MODAL PARA VIDEO -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-content">
       <button class="close-btn" id="closeBtn">X</button>
-      <!-- Aquí tu video (cambia VIDEO.mp4 por tu archivo o tu iframe de YouTube) -->
       <video id="miVideo" controls>
         <source src="VIDEO.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
@@ -431,7 +399,7 @@
     </p>
   </footer>
 
-  <!-- JAVASCRIPT PARA EL MODAL DE VIDEO (descomenta si lo necesitas) -->
+  <!-- JAVASCRIPT PARA EL MODAL DE VIDEO -->
   <script>
     const verBtn = document.getElementById('verBtn');
     const modalOverlay = document.getElementById('modalOverlay');
@@ -439,6 +407,7 @@
     const miVideo = document.getElementById('miVideo');
 
     function openModal() {
+      console.log("Abriendo modal y reproduciendo video...");
       modalOverlay.style.display = 'flex';
       miVideo.currentTime = 0;
       miVideo.play();
@@ -455,7 +424,6 @@
     });
     closeBtn.addEventListener('click', closeModal);
 
-    // Cerrar modal al hacer clic fuera del contenido
     window.addEventListener('click', function(e) {
       if(e.target === modalOverlay) {
         closeModal();
