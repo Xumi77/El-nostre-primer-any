@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Netflix Pareja - Elsa & Guifré</title>
-  
+ 
   <!-- IMPORTACIÓN DE FUENTES (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&display=swap" 
     rel="stylesheet"
   >
-
+ 
   <style>
     /* Reseteo básico */
     * {
@@ -19,14 +19,14 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+ 
     /* FUENTE GENERAL */
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #141414;
       color: #fff;
     }
-
+ 
     /* ENCABEZADO / NAV SUPERIOR */
     header {
       display: flex;
@@ -36,9 +36,9 @@
       height: 60px;
       background-color: rgba(0,0,0,0.8);
       position: relative;
-      z-index: 10;
+      z-index: 10; /* Para que quede por encima del banner */
     }
-
+ 
     /* LOGO NETFLIX */
     .logo {
       font-size: 1.6rem;
@@ -48,7 +48,7 @@
       letter-spacing: 1px;
       cursor: pointer;
     }
-
+ 
     /* MENÚ PRINCIPAL */
     nav ul {
       list-style: none;
@@ -64,8 +64,8 @@
     nav a:hover {
       color: #bbb;
     }
-
-    /* ICONOS DERECHA */
+ 
+    /* ICONOS DERECHA (BÚSQUEDA, CAMPANA, PERFIL) */
     .right-icons {
       display: flex;
       align-items: center;
@@ -86,34 +86,36 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
+ 
     /* BANNER PRINCIPAL */
     .banner {
       position: relative;
       width: 100%;
       height: 60vh;
+      /* SUSTITUIR 'banner.jpg' POR TU IMAGEN */
       background: url("banner.jpg") center center / cover no-repeat;
       display: flex;
       align-items: flex-end;
       padding: 2rem;
-      margin-top: 120px; 
+      /* ESPACIO EXTRA PARA QUE NO SE TAPE CON EL HEADER */
+      margin-top: 80px; 
     }
-
+ 
     .banner-content {
       max-width: 700px;
       background-color: rgba(0,0,0,0.6);
       padding: 1.5rem;
       border-radius: 5px;
     }
-
+ 
     /* NOMBRE PRINCIPAL - ESTILO CURSIVO */
     .banner-content h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 3rem;
       margin-bottom: 0.5rem;
     }
-
-    /* LÍNEA DE INFO */
+ 
+    /* LÍNEA DE INFO (Casais, Juntos..., etc.) */
     .info-line {
       display: flex;
       flex-wrap: wrap;
@@ -123,39 +125,45 @@
       color: #ccc;
       margin: 0.8rem 0;
     }
-    .info-line span {
-      padding: 0.1rem 0.4rem;
-      border-radius: 3px;
-    }
-    .info-line .genre {
-      background-color: transparent;
-    }
+    /* Etiquetas de clasificación, rating, etc. */
     .info-line .rating {
       background-color: #21d07a;
       color: #000;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
       font-weight: bold;
     }
     .info-line .badge {
       background-color: #333;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-weight: normal;
     }
-    .info-line .top10 {
+ 
+    /* Para destacar un “TOP 10” si quisieras */
+    .top10 {
+      display: inline-block;
       background-color: #e50914;
-      font-weight: bold;
+      padding: 0.2rem 0.4rem;
+      margin-top: 0.3rem;
       font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 3px;
     }
-
-    /* DESCRIPCIÓN */
+ 
+    /* DESCRIPCIÓN / SINOPSIS */
     .banner-content p {
       line-height: 1.4;
       margin-bottom: 1.2rem;
     }
-
-    /* BOTONES */
+ 
+    /* BOTONES (VER, FAVORITO) */
     .banner-buttons {
       display: flex;
       gap: 1rem;
       margin-bottom: 1rem;
     }
+    /* Cambio a botón para evitar comportamiento de enlace */
     .banner-buttons button {
       display: inline-flex;
       align-items: center;
@@ -178,14 +186,14 @@
     .banner-buttons .favorite-btn:hover {
       background-color: #444;
     }
-
-    /* ETIQUETAS / CRÉDITOS */
+ 
+    /* ETIQUETAS / CRÉDITOS (género, protagonistas, etc.) */
     .tags {
       font-size: 0.85rem;
       color: #bbb;
     }
-
-    /* TABS */
+ 
+    /* TABS (Historia, Momentos, etc.) */
     .tabs {
       display: flex;
       gap: 1.5rem;
@@ -209,8 +217,8 @@
       height: 2px;
       background-color: red;
     }
-
-    /* SECCIÓN DE FOTOS */
+ 
+    /* SECCIONES DE FOTOS / MINIATURAS */
     .section-container {
       padding: 1.5rem 2rem;
     }
@@ -219,11 +227,13 @@
       margin-bottom: 1rem;
       font-weight: bold;
     }
+ 
     .thumbnails {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
+ 
     .thumbnails img {
       width: 220px;
       height: 120px;
@@ -235,7 +245,7 @@
     .thumbnails img:hover {
       transform: scale(1.05);
     }
-
+ 
     /* PIE DE PÁGINA */
     footer {
       text-align: center;
@@ -256,8 +266,8 @@
     footer a:hover {
       color: #aaa;
     }
-
-    /* MODAL */
+ 
+    /* MODAL (para reproducir un video) */
     .modal-overlay {
       position: fixed;
       top: 0; 
@@ -293,11 +303,11 @@
       height: auto;
       outline: none;
     }
-
+ 
   </style>
 </head>
 <body>
-
+ 
   <!-- ENCABEZADO -->
   <header>
     <div class="logo">Netflix</div>
@@ -316,25 +326,24 @@
       <img src="profile.jpg" alt="Profile" class="profile-img">
     </div>
   </header>
-
+ 
   <!-- BANNER PRINCIPAL -->
   <div class="banner">
     <div class="banner-content">
       <h1>Elsa &amp; Guifré</h1>
       <div class="info-line">
-        <span class="genre">Casais</span>
-        <span>Juntos desde 2017</span>
-        <span>1º Grande Amor</span>
-        <span class="rating">16</span>
+        <span class="genre">Futuro matrimonio</span>
+        <span>Juntos desde 6 Abril 2024</span>
+        <span>1º Gran Amor</span>
+        <span class="rating">L</span>
         <span class="badge">HDR</span>
-        <span class="top10">Melhores Casais do Mundo</span>
       </div>
       <p>
         Una joven pareja se ve envuelta en una increíble romédia comántica
         en la que se verán abrumados por mil aventuras, algunas saldrán bien,
         otras mal, reirán y llorarán, pero lo más importante: Siempre permanecerán juntos.
       </p>
-      <!-- He cambiado el enlace por un botón para evitar conflictos con el comportamiento del enlace -->
+      <!-- BOTONES: ahora el botón "Ver" es un elemento <button> -->
       <div class="banner-buttons">
         <button id="verBtn">▶ Ver</button>
         <button class="favorite-btn">♡ Favorito</button>
@@ -352,8 +361,8 @@
       </div>
     </div>
   </div>
-
-  <!-- SECCIÓN DE FOTOS -->
+ 
+  <!-- SECCIÓN DE FOTOS / MOMENTOS -->
   <div class="section-container">
     <div class="section-title">Nuestros momentos</div>
     <div class="thumbnails">
@@ -367,7 +376,7 @@
       <img src="foto8.jpg" alt="Foto 8">
     </div>
   </div>
-
+ 
   <!-- OTRA SECCIÓN -->
   <div class="section-container">
     <div class="section-title">La más perfecta</div>
@@ -378,7 +387,7 @@
       <img src="foto12.jpg" alt="Foto 12">
     </div>
   </div>
-
+ 
   <!-- MODAL PARA VIDEO -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-content">
@@ -389,7 +398,7 @@
       </video>
     </div>
   </div>
-
+ 
   <!-- PIE DE PÁGINA -->
   <footer>
     <p>N Original <strong>Netflix</strong> | Desde 2012</p>
@@ -398,38 +407,37 @@
       Esta página es solo un ejemplo de estilo “Netflix” personalizado.
     </p>
   </footer>
-
+ 
   <!-- JAVASCRIPT PARA EL MODAL DE VIDEO -->
   <script>
     const verBtn = document.getElementById('verBtn');
     const modalOverlay = document.getElementById('modalOverlay');
     const closeBtn = document.getElementById('closeBtn');
     const miVideo = document.getElementById('miVideo');
-
+ 
     function openModal() {
-      console.log("Abriendo modal y reproduciendo video...");
       modalOverlay.style.display = 'flex';
       miVideo.currentTime = 0;
       miVideo.play();
     }
-
+ 
     function closeModal() {
       miVideo.pause();
       modalOverlay.style.display = 'none';
     }
-
+ 
     verBtn.addEventListener('click', function(e) {
       e.preventDefault();
       openModal();
     });
     closeBtn.addEventListener('click', closeModal);
-
+ 
     window.addEventListener('click', function(e) {
       if(e.target === modalOverlay) {
         closeModal();
       }
     });
   </script>
-
+ 
 </body>
 </html>
