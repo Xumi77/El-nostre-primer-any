@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Netflix Pareja - Elsa & Guifré</title>
+  <title>Netflix Pareja - Elsa &amp; Guifré</title>
  
   <!-- IMPORTACIÓN DE FUENTES (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
       height: 60px;
       background-color: rgba(0,0,0,0.8);
       position: relative;
-      z-index: 10; /* Para que quede por encima del banner */
+      z-index: 10;
     }
  
     /* LOGO NETFLIX */
@@ -92,12 +92,10 @@
       position: relative;
       width: 100%;
       height: 60vh;
-      /* SUSTITUIR 'banner.jpg' POR TU IMAGEN */
       background: url("banner.jpg") center center / cover no-repeat;
       display: flex;
       align-items: flex-end;
       padding: 2rem;
-      /* ESPACIO EXTRA PARA QUE NO SE TAPE CON EL HEADER */
       margin-top: 80px; 
     }
  
@@ -115,7 +113,7 @@
       margin-bottom: 0.5rem;
     }
  
-    /* LÍNEA DE INFO (Casais, Juntos..., etc.) */
+    /* LÍNEA DE INFO */
     .info-line {
       display: flex;
       flex-wrap: wrap;
@@ -125,7 +123,6 @@
       color: #ccc;
       margin: 0.8rem 0;
     }
-    /* Etiquetas de clasificación, rating, etc. */
     .info-line .rating {
       background-color: #21d07a;
       color: #000;
@@ -139,8 +136,6 @@
       border-radius: 3px;
       font-weight: normal;
     }
- 
-    /* Para destacar un “TOP 10” si quisieras */
     .top10 {
       display: inline-block;
       background-color: #e50914;
@@ -157,13 +152,12 @@
       margin-bottom: 1.2rem;
     }
  
-    /* BOTONES (VER, FAVORITO) */
+    /* BOTONES */
     .banner-buttons {
       display: flex;
       gap: 1rem;
       margin-bottom: 1rem;
     }
-    /* Cambio a botón para evitar comportamiento de enlace */
     .banner-buttons button {
       display: inline-flex;
       align-items: center;
@@ -187,13 +181,13 @@
       background-color: #444;
     }
  
-    /* ETIQUETAS / CRÉDITOS (género, protagonistas, etc.) */
+    /* ETIQUETAS / CRÉDITOS */
     .tags {
       font-size: 0.85rem;
       color: #bbb;
     }
  
-    /* TABS (Historia, Momentos, etc.) */
+    /* TABS */
     .tabs {
       display: flex;
       gap: 1.5rem;
@@ -227,13 +221,11 @@
       margin-bottom: 1rem;
       font-weight: bold;
     }
- 
     .thumbnails {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
- 
     .thumbnails img {
       width: 220px;
       height: 120px;
@@ -266,44 +258,6 @@
     footer a:hover {
       color: #aaa;
     }
- 
-    /* MODAL (para reproducir un video) */
-    .modal-overlay {
-      position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-    .modal-content {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      background: #000;
-      border-radius: 5px;
-      padding: 20px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    video {
-      width: 100%;
-      height: auto;
-      outline: none;
-    }
- 
   </style>
 </head>
 <body>
@@ -343,7 +297,7 @@
         en la que se verán abrumados por mil aventuras, algunas saldrán bien,
         otras mal, reirán y llorarán, pero lo más importante: Siempre permanecerán juntos.
       </p>
-      <!-- BOTONES: ahora el botón "Ver" es un elemento <button> -->
+      <!-- BOTONES: Ahora el botón "Ver" redirige a YouTube -->
       <div class="banner-buttons">
         <button id="verBtn">▶ Ver</button>
         <button class="favorite-btn">♡ Favorito</button>
@@ -388,54 +342,22 @@
     </div>
   </div>
  
-  <!-- MODAL PARA VIDEO -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-content">
-      <button class="close-btn" id="closeBtn">X</button>
-      <video id="miVideo" controls>
-        <source src="VIDEO.mp4" type="video/mp4">
-        Tu navegador no soporta video HTML5.
-      </video>
-    </div>
-  </div>
- 
   <!-- PIE DE PÁGINA -->
   <footer>
     <p>N Original <strong>Netflix</strong> | Desde 2012</p>
     <p>
-      Proyecto creado por <a href="#">Tu Nombre</a>.  
+      Proyecto creado por <a href="#">Tu Nombre</a>.<br>
       Esta página es solo un ejemplo de estilo “Netflix” personalizado.
     </p>
   </footer>
  
-  <!-- JAVASCRIPT PARA EL MODAL DE VIDEO -->
+  <!-- JAVASCRIPT PARA REDIRIGIR AL VIDEO DE YOUTUBE -->
   <script>
     const verBtn = document.getElementById('verBtn');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const closeBtn = document.getElementById('closeBtn');
-    const miVideo = document.getElementById('miVideo');
- 
-    function openModal() {
-      modalOverlay.style.display = 'flex';
-      miVideo.currentTime = 0;
-      miVideo.play();
-    }
- 
-    function closeModal() {
-      miVideo.pause();
-      modalOverlay.style.display = 'none';
-    }
- 
     verBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      openModal();
-    });
-    closeBtn.addEventListener('click', closeModal);
- 
-    window.addEventListener('click', function(e) {
-      if(e.target === modalOverlay) {
-        closeModal();
-      }
+      // Reemplaza "YOUR_VIDEO_ID" por el ID real de tu video en YouTube
+      window.open("https://www.youtube.com/watch?v=YOUR_VIDEO_ID", "_blank");
     });
   </script>
  
